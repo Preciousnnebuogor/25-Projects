@@ -1,11 +1,9 @@
-import Image from "next/image";
-import Quotes from "./quote";
-import InputForm from "./inputForm";
+import Counter from "./counter";
 
 export default function Home() {
   return (
     <div>
-      <InputForm/>
+      <Counter/>
     </div>
   );
 }

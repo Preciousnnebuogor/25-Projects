@@ -42,6 +42,7 @@ export default function InputForm() {
           </button>
         </div>
         {showName && name}
+        {``}
         {showName && lastName}
       </div>
     </div>
