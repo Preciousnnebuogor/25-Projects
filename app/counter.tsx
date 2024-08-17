@@ -8,15 +8,24 @@ export default function Counter(){
     return (
       <div>
         <div className={`mt-20 px-4`}>
-          <p>{increase}</p>
-          <div className={`flex items-center justify-between`}>
-            <button onClick={()=>{
-                setIncrease(increase + 1)
-                
-            }}>Increase</button>
-            <button onClick={()=>{
-                setIncrease(increase - 1)
-            }}>Decrease</button>
+          <div className={`flex items-center justify-center`}>
+            <p>{increase}</p>
+          </div>
+          <div className={`flex items-center justify-between mt-4`}>
+            <button
+              onClick={() => {
+                setIncrease(increase + 1);
+              }}
+            >
+              Increase
+            </button>
+            <button
+              onClick={() => {
+                setIncrease(increase - 1);
+              }}
+            >
+              Decrease
+            </button>
           </div>
         </div>
       </div>
