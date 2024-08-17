@@ -1,5 +1,5 @@
 "use client";
-
+// Quote - displays different quotes when clicked on the button//
 import { useState } from "react";
 
 export default function Quotes() {

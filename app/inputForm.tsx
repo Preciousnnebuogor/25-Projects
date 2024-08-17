@@ -1,5 +1,5 @@
 "use client";
-
+// Form - displays whatever typed on the input field//
 import { useState } from "react";
 
 export default function InputForm() {

@@ -1,5 +1,5 @@
 "use client"
-
+// Counter - increase button that increase the count and decrease button that decrease the count//
 import { useState } from "react"
 
 export default function Counter(){
