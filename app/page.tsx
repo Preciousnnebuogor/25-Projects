@@ -4,7 +4,7 @@ import Counter from "./counter";
 export default function Home() {
   return (
     <div>
-      <Color/>
+      <Counter/>
     </div>
   );
 }

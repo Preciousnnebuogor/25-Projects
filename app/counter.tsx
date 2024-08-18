@@ -19,6 +19,15 @@ export default function Counter(){
             >
               Increase
             </button>
+
+            <button
+              onClick={() => {
+                setIncrease(0);
+              }}
+            >
+              Reset
+            </button>
+
             <button
               onClick={() => {
                 setIncrease(increase - 1);
