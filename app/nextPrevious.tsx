@@ -1,5 +1,5 @@
 "use client";
-
+// Have two button, Next for nexting images while Previous button for previous images//
 import { useState } from "react";
 
 export default function NextPrevious() {
