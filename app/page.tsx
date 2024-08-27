@@ -1,11 +1,11 @@
 import Color from "./color";
 import Counter from "./counter";
-import NextPrevious from "./nextPrevious";
+import Time from "./time";
 
 export default function Home() {
   return (
     <div>
-      <NextPrevious/>
+      <Time/>
     </div>
   );
 }
