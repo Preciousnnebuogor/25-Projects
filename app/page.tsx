@@ -1,11 +1,10 @@
-import Color from "./color";
-import Counter from "./counter";
-import Time from "./time";
+import Calculator from "./calculator";
+
 
 export default function Home() {
   return (
     <div>
-      <Time/>
+      <Calculator/>
     </div>
   );
 }
