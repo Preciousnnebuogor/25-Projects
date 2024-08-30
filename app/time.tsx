@@ -1,3 +1,7 @@
+// Time: that shows days,month,hour,second,minutes
+// days changes 
+//mintues and seconds keep counting
+
 "use client";
 
 import { useEffect, useState } from "react";
