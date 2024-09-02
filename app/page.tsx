@@ -1,10 +1,11 @@
-import Calculator from "./calculator";
+
+import TodoList from "./todo";
 
 
 export default function Home() {
   return (
     <div>
-      <Calculator/>
+      <TodoList/>
     </div>
   );
 }
