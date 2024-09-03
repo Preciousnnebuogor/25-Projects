@@ -1,11 +1,9 @@
-
-import TodoList from "./todo";
-
+import TipCalculator from "./tipCalculator";
 
 export default function Home() {
   return (
     <div>
-      <TodoList/>
+      <TipCalculator />
     </div>
   );
 }
