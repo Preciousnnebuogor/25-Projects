@@ -6,7 +6,8 @@ import { GoDotFill } from "react-icons/go";
 
 export default function TodoList() {
   const [write, setWrite] = useState("");
-  const [listTodo, setListTodo] = useState<string[]>([]);
+  const [listTodo, setListTodo] = useState<string[]>([]); 
+//   the listTodo is use to store all the items and it is stored in an arrary because the items are much
   return (
     <div className={`mt-10 px-4`}>
       <div>
@@ -23,6 +24,7 @@ export default function TodoList() {
             value={write}
             onChange={(e) => {
               setWrite(e.target.value);
+              // e.targrt.value is use to store whatever typed on the input.
             }}
             className={`border-orange-500 border-b-4 bg-black mb-3`}
           />
@@ -39,19 +41,21 @@ export default function TodoList() {
 
         <div className={`mt-4 flex items-center justify-center`}>
           <div>
+            {/* create map to map throught the items saved in listTodo. todo represents the items */}
             {listTodo.map((todo, index) => (
-              <div className={`flex items-center justify-center space-x-1`}>
+              <div
+                className={`flex items-center justify-center space-x-1`}
+                onClick={() => {
+                // creating filter to use to remove an item. filter must be in a boolean condition
+                  const outcome = listTodo.filter(
+                    (removeItem, number) => index !== number
+                  );
+                  setListTodo(outcome);
+                }}
+              >
                 <GoDotFill />
-                {todo}
-                <button
-                className={`text-red-600`}
-                  onClick={() => {
-                const outcome  =   listTodo.filter((removeItem, number) => index !== number)
-                    setListTodo(outcome)
-                  }}
-                >
-                  remove
-                </button>
+                {todo}  
+               
               </div>
             ))}
           </div>
