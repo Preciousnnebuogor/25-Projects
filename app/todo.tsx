@@ -2,16 +2,21 @@
 
 import { useState } from "react";
 import { FaEyeDropper } from "react-icons/fa6";
+import { GoDotFill } from "react-icons/go";
 
 export default function TodoList() {
   const [write, setWrite] = useState("");
-  const [add, setAdd] = useState<string[]>([]);
+  const [listTodo, setListTodo] = useState<string[]>([]);
   return (
     <div className={`mt-10 px-4`}>
       <div>
         <div className={`flex items-center justify-center space-x-2`}>
-
-          <FaEyeDropper className={`text-orange-500`} />
+          <FaEyeDropper
+            onClick={() => {
+              setListTodo([]);
+            }}
+            className={`text-orange-500`}
+          />
 
           <input
             type="text"
@@ -24,19 +29,36 @@ export default function TodoList() {
 
           <button
             onClick={() => {
-              setAdd([...add, write])
+              setListTodo([...listTodo, write]);
               setWrite("");
             }}
           >
             Add
           </button>
         </div>
-        <div className={`mt-4`}>
-          {add.map((value, index)=> (
-            <div>{value}</div>
-          ))}
+
+        <div className={`mt-4 flex items-center justify-center`}>
+          <div>
+            {listTodo.map((todo, index) => (
+              <div className={`flex items-center justify-center space-x-1`}>
+                <GoDotFill />
+                {todo}
+                <button
+                className={`text-red-600`}
+                  onClick={() => {
+                const outcome  =   listTodo.filter((removeItem, number) => index !== number)
+                    setListTodo(outcome)
+                  }}
+                >
+                  remove
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   );
 }
+
+// todo respents what is typied and save in the listTodo//
