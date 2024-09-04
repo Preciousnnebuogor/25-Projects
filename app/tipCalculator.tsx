@@ -1,21 +1,23 @@
 "use client";
 import { PiCurrencyCircleDollarFill } from "react-icons/pi";
 import { IoIosPeople } from "react-icons/io";
-
+import { useState } from "react";
 
 export default function TipCalculator() {
+  const [amount, setAmount] = useState("");
+  const [guest, setGuest] = useState("");
+  const [result,setResult] = useState("")
+
   return (
-    <div className={`mt-10`}>
+    <div className={`mt-10 px-10`}>
       <div
-        className={`flex items-center justify-center font-bold text-green-600`}
+        className={`font-bold text-green-600 flex items-center justify-center`}
       >
         <p>Top Calculator</p>
       </div>
 
-      <div
-        className={`flex items-center justify-center mt-4 border-2 border-green-600 px-3 w-[30%] py-10  `}
-      >
-        <div className={``}>
+      <div className={`flex items-center justify-center mt-4 `}>
+        <div className={`border-2 border-green-600 px-6 py-10`}>
           <div className={``}>
             <label>Bill Amount</label>
             <div
@@ -24,7 +26,18 @@ export default function TipCalculator() {
               <div className={`bg-white text-black h-full`}>
                 <PiCurrencyCircleDollarFill className="h-full" />
               </div>
-              <input type="text" className={`outline-none h-full text-black`} />
+              <input
+                type="text"
+                onChange={(e) => {
+                  setAmount(e.target.value);
+                  console.log(e.target);
+                  console.log(e.target.value);
+                  
+                }}
+                value={amount}
+                
+                className={`outline-none h-full text-black`}
+              />
             </div>
           </div>
 
@@ -38,7 +51,14 @@ export default function TipCalculator() {
               <div className={`bg-white text-black h-full`}>
                 <IoIosPeople className="h-full" />
               </div>
-              <input type="text" className={`outline-none h-full text-black`} />
+              <input
+                type="text"
+                onChange={(e) => {
+                  setGuest(e.target.value);
+                }}
+                value={guest}
+                className={`outline-none h-full text-black`}
+              />
             </div>
           </div>
 
@@ -56,12 +76,22 @@ export default function TipCalculator() {
               </select>
             </div>
           </div>
-
-          
         </div>
       </div>
-      <div className={``}>
-        <button>Calculate</button>
+
+      <div
+        onClick={() => {
+          const OutCome = parseInt(amount) * parseInt(guest);
+          setResult(eval(OutCome.toString()));
+          console.log(result);
+        }}
+        className={`flex items-center justify-center mt-4`}
+      >
+        <button className={`bg-green-600 px-6 rounded`}>Calculate</button>
+      </div>
+
+      <div className={` flex items-center justify-center mt-4 `}>
+        <p className={`bg-green-600 rounded px-4`}>{result}</p>
       </div>
     </div>
   );
