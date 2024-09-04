@@ -1,9 +1,10 @@
-import TipCalculator from "./tipCalculator";
+import FlashCard from "./flashCard";
+
 
 export default function Home() {
   return (
     <div>
-      <TipCalculator />
+      <FlashCard />
     </div>
   );
 }
