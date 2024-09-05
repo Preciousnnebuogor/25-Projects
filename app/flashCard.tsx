@@ -14,8 +14,24 @@ export default function FlashCard() {
       >
         <p>FlashCard</p>
         <div className={`flex items-end justify-between space-x-4`}>
-          <button className={` rounded bg-gray-500`}>NewCard</button>
-          <button className={` rounded bg-gray-500`}>DelCard</button>
+          <button
+            onClick={() => {
+              setList([...List, { answer: answer, question: question }]);
+              setAnswer("");
+              setQuestion("");
+            }}
+            className={` rounded bg-gray-500`}
+          >
+            NewCard
+          </button>
+          <button
+            onClick={() => {
+              setList([]);
+            }}
+            className={` rounded bg-gray-500`}
+          >
+            DelCard
+          </button>
         </div>
       </div>
 
@@ -59,9 +75,13 @@ export default function FlashCard() {
             >
               Save
             </button>
-            <button onClick={()=>{
-                setList([])
-            }}>Close</button>
+            <button
+              onClick={() => {
+                setList([]);
+              }}
+            >
+              Close
+            </button>
           </div>
         </div>
       </div>
