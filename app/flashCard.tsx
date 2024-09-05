@@ -7,7 +7,7 @@ export default function FlashCard() {
   const [answer, setAnswer] = useState("");
   const [List, setList] = useState<{ question: string; answer: string }[]>([]);
   return (
-    <div className={`bg-pink-600 h-full`}>
+    <div className={``}>
       <div
         className={`border-b-2 border-gray-500 flex items-center justify-between 
             px-4 pb-2 bg-slate-300 text-black pt-4`}
@@ -59,12 +59,14 @@ export default function FlashCard() {
             >
               Save
             </button>
-            <button>Close</button>
+            <button onClick={()=>{
+                setList([])
+            }}>Close</button>
           </div>
         </div>
       </div>
       <div>
-        <div className={`flex items-center justify-start px-4 space-x-2`}>
+        <div className={`grid grid-cols-4 px-4 space-x-2`}>
           {List.map((value, index) => (
             <div className={`mt-4 bg-gray-300 rounded px-4 text-black `}>
               <div className={` my-4`}>{value.question}</div>
