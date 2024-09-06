@@ -42,7 +42,11 @@ export default function StickyNote() {
                     setResult([...result, create]);
                   }}
                 />
-                <HiMinusSm />
+                <HiMinusSm
+                  onClick={() => {
+                    setResult([]);
+                  }}
+                />
               </div>
               <textarea
                 onChange={(e) => {
@@ -64,6 +68,12 @@ export default function StickyNote() {
               <div
                 className={`rounded  p-5`}
                 style={{ backgroundColor: bgColors[wholeNumber] }}
+                onClick={() => {
+                  const outcome = result.filter(
+                    (removeItem, number) => index !== number
+                  );
+                  setResult(outcome);
+                }}
               >
                 {value}
               </div>
