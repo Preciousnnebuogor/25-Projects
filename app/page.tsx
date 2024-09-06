@@ -1,10 +1,9 @@
-import FlashCard from "./flashCard";
-
+import StickyNote from "./stickyNote";
 
 export default function Home() {
   return (
     <div>
-      <FlashCard />
+      <StickyNote />
     </div>
   );
 }
