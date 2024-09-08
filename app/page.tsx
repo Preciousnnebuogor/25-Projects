@@ -1,9 +1,11 @@
-import StickyNote from "./stickyNote";
+
+import Atest from "./atest";
+import StopTimer from "./stopTimer";
 
 export default function Home() {
   return (
     <div>
-      <StickyNote />
+      <Atest/>
     </div>
   );
 }
