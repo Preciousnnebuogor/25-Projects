@@ -1,11 +1,9 @@
-
-import Atest from "./atest";
-import StopTimer from "./stopTimer";
+import Unsplash from "./unsplash";
 
 export default function Home() {
   return (
     <div>
-      <Atest/>
+      <Unsplash />
     </div>
   );
 }
