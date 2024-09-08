@@ -10,10 +10,17 @@ export default function Atest(){
   //const intervalRef: MutableRefObject<{}>;
 
   let timepassed = (time - now) / 1000;
+  let minutes = Math.floor(timepassed / 60);
+  let seconds = Math.floor(timepassed % 60);
+  let milliseconds = Math.floor((timepassed - Math.floor(timepassed)) * 1000);
+
   return (
     <div>
       <div>
         <p>{timepassed.toFixed(3)}</p>
+        <p>{minutes}</p>
+        <p>{seconds}</p>
+        <p>{milliseconds}</p>
         <div
           onClick={() => {
             setTime(Date.now());
