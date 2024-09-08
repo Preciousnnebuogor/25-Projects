@@ -27,7 +27,8 @@ export default function Atest(){
         </div>
         <div
           onClick={() => {
-            clearInterval(intervalRef.current);
+            clearInterval(intervalRef.current as number);
+            // casting means forcing a element to be a number (as number)
           }}
         >
           stop
