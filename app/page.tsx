@@ -1,9 +1,10 @@
-import Unsplash from "./unsplash";
+import QuoteApi from "./quoeAPI";
+
 
 export default function Home() {
   return (
     <div>
-      <Unsplash />
+      <QuoteApi />
     </div>
   );
 }
