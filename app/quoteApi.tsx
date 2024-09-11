@@ -38,9 +38,9 @@ export default function QuoteApi() {
     }
 
     // getQuotes();
-    setInterval(getQuotes, 1000 * 60);
+    setInterval(getQuotes, 5000);
     return () => {
-      //   clearInterval(intervalState);
+      clearInterval(intervalState);
     };
   }, []);
 
@@ -48,11 +48,22 @@ export default function QuoteApi() {
     <div>
       <p>
         {display.map((value, index) => (
-          <div className={`mt-20 px-4 text-blue-700`}>
-            <p>QUOTES</p>
-            <p> {value.category} </p>
-            {value.author}
-            {value.quote}
+          <div
+            className={`mt-20 px-4 text-blue-700 flex flex-col items-center justify-center`}
+          >
+            <div className={`mt-4 `}>
+              <p>QUOTES</p>
+            </div>
+            <div className={`mt-4`}>
+              <p> Category: {value.category} </p>
+            </div>
+            <div className={`mt-4`}>
+              <p> Author: {value.author}</p>
+            </div>
+
+            <div className={`mt-4`}>
+              <p>{value.quote}</p>
+            </div>
           </div>
         ))}
       </p>

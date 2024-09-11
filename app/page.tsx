@@ -1,4 +1,4 @@
-import QuoteApi from "./quoeAPI";
+import QuoteApi from "./quoteApi";
 
 
 export default function Home() {
