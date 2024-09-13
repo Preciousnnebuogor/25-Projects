@@ -1,11 +1,9 @@
-
-import SquareCard from "./squareCard";
-
+import Game from "./game";
 
 export default function Home() {
   return (
     <div>
-      <SquareCard/>
+      <Game />
     </div>
   );
 }
