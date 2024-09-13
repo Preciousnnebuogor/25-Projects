@@ -1,5 +1,3 @@
-
-
 type IProduct = {
   image: string;
   details: string;
@@ -26,7 +24,7 @@ export const ProductList: IProduct[] = [
   },
 
   {
-    image: "/facebook3.jpg",
+    image: "/facebook6.jpg",
     details: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum quo
             deserunt sed unde cupiditate, aperiam maxime odit porro quae
             maiores! Itaque molestias assumenda voluptate hic dolorum aut labore

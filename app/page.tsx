@@ -1,10 +1,11 @@
-import QuoteApi from "./quoteApi";
+
+import SquareCard from "./squareCard";
 
 
 export default function Home() {
   return (
     <div>
-      <QuoteApi />
+      <SquareCard/>
     </div>
   );
 }
