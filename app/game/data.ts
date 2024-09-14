@@ -7,7 +7,7 @@ type IGame = {
   category: "ADD" | "MULTIPLY" | "DIVIDE" | "SUBSTRACT";
 };
 
-const SquareGame: IGame[] = [
+export const SquareGame: IGame[] = [
   {
     question: "1 + 2",
     answers: "3",

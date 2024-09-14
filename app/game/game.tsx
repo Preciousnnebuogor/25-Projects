@@ -1,4 +1,7 @@
 "use client";
+
+import { SquareGame } from "./data";
+
 export default function Game() {
   return (
     <div className={`h-[100vh] flex flex-col`}>
@@ -25,7 +28,7 @@ export default function Game() {
               className={`flex items-center justify-center space-x-3  w-full `}
             >
               <div className={`text-9xl font-extrabold`}>
-                <h1>{`2 + 2 = 4`}</h1>
+                <div>{SquareGame[0].question} =</div>
               </div>
             </div>
 
@@ -34,21 +37,21 @@ export default function Game() {
                 className={`bg-green-600 w-[150px] h-[150px] flex 
                     items-center justify-center text-7xl mb-4 font-extrabold`}
               >
-                <h1>1</h1>
+                <h1>{SquareGame[0].option1}</h1>
               </div>
 
               <div
                 className={`bg-purple-600 w-[150px] h-[150px] flex 
                     items-center justify-center text-7xl mb-4 font-extrabold`}
               >
-                <h1>4</h1>
+                <h1>{SquareGame[0].option2}</h1>
               </div>
 
               <div
                 className={`bg-blue-600 w-[150px] h-[150px] flex 
                     items-center justify-center text-7xl font-extrabold`}
               >
-                <h1>3</h1>
+                <h1>{SquareGame[0].option3}</h1>
               </div>
             </div>
           </div>
