@@ -25,7 +25,7 @@ export default function Game() {
               className={`flex items-center justify-center space-x-3  w-full `}
             >
               <div className={`text-9xl font-extrabold`}>
-                <h1>{`2 + 2 = 8`}</h1>
+                <h1>{`2 + 2 = 4`}</h1>
               </div>
             </div>
 
@@ -41,7 +41,7 @@ export default function Game() {
                 className={`bg-purple-600 w-[150px] h-[150px] flex 
                     items-center justify-center text-7xl mb-4 font-extrabold`}
               >
-                <h1>2</h1>
+                <h1>4</h1>
               </div>
 
               <div
