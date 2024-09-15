@@ -9,9 +9,10 @@ export default function Game() {
     "ADD" | "MULTIPLY" | "DIVIDE" | "SUBSTRACT"
   >("ADD");
   const [displayAnswer, setDisplayAnswer] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const filteredQuestions = QuestionBank.filter(
-    (question) => question.category === activeCategory
+    (question,index) => question.category === activeCategory
   );
 
   return (
@@ -74,13 +75,48 @@ export default function Game() {
         <div className={`bg-slate-200 text- text-red-600 w-full h-full px-4  `}>
           <div className={``}>
             <div className={`flex items-center justify-between `}>
-              <div
-                className={`flex items-center justify-center space-x-3  w-full `}
-              >
-                <div className={`text-9xl font-extrabold`}>
+              <div className={`  w-full `}>
+                <div
+                  className={`text-9xl font-extrabold flex items-center justify-center space-x-3`}
+                >
                   <div>
-                    {filteredQuestions[0].question} ={" "}
-                    {displayAnswer && filteredQuestions[0].answers}
+                    {filteredQuestions[activeIndex].question} ={" "}
+                    {displayAnswer && filteredQuestions[activeIndex].answers}
+                  </div>
+                </div>
+
+                <div className={`flex items-center justify-center space-x-10`}>
+                  <div
+                    className={`bg-green-600 rounded px-4 py-4 mt-4 text-white`}
+                  >
+                    <button
+                      onClick={() => {
+                        if (displayAnswer) {
+                          if (activeIndex > 0) {
+                            setActiveIndex(activeIndex - 1);
+                            setDisplayAnswer(false);
+                          }
+                        }
+                      }}
+                    >
+                      previous
+                    </button>
+                  </div>
+                  <div
+                    className={`bg-purple-600 rounded px-8 py-4 mt-4 text-white`}
+                  >
+                    <button
+                      onClick={() => {
+                        if (displayAnswer) {
+                          if (activeIndex < filteredQuestions.length - 1) {
+                            setActiveIndex(activeIndex + 1);
+                            setDisplayAnswer(false);
+                          }
+                        }
+                      }}
+                    >
+                      Next
+                    </button>
                   </div>
                 </div>
               </div>
@@ -94,14 +130,14 @@ export default function Game() {
                     onClick={() => {
                       console.log("it is wrong");
                       if (
-                        filteredQuestions[0].option1 ===
-                        filteredQuestions[0].answers
+                        filteredQuestions[activeIndex].option1 ===
+                        filteredQuestions[activeIndex].answers
                       ) {
                         setDisplayAnswer(true);
                       }
                     }}
                   >
-                    {filteredQuestions[0].option1}
+                    {filteredQuestions[activeIndex].option1}
                   </h1>
                 </div>
 
@@ -112,14 +148,14 @@ export default function Game() {
                   <h1
                     onClick={() => {
                       if (
-                        filteredQuestions[0].option2 ===
-                        filteredQuestions[0].answers
+                        filteredQuestions[activeIndex].option2 ===
+                        filteredQuestions[activeIndex].answers
                       ) {
                         setDisplayAnswer(true);
                       }
                     }}
                   >
-                    {filteredQuestions[0].option2}
+                    {filteredQuestions[activeIndex].option2}
                   </h1>
                 </div>
 
@@ -130,14 +166,14 @@ export default function Game() {
                   <h1
                     onClick={() => {
                       if (
-                        filteredQuestions[0].option3 ===
-                        filteredQuestions[0].answers
+                        filteredQuestions[activeIndex].option3 ===
+                        filteredQuestions[activeIndex].answers
                       ) {
                         setDisplayAnswer(true);
                       }
                     }}
                   >
-                    {filteredQuestions[0].option3}
+                    {filteredQuestions[activeIndex].option3}
                   </h1>
                 </div>
               </div>
