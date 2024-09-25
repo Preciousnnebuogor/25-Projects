@@ -1,9 +1,10 @@
-import Game from "./game/game";
+
+import TodoList from "./todo";
 
 export default function Home() {
   return (
     <div>
-      <Game />
+      <TodoList />
     </div>
   );
 }
