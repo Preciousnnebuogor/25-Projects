@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FaEyeDropper } from "react-icons/fa6";
 import { GoDotFill } from "react-icons/go";
+import axios from "axios";
 
 export default function TodoList() {
   const [write, setWrite] = useState("");
@@ -11,13 +12,15 @@ export default function TodoList() {
   >([]);
 
   async function apiGet() {
-    const result = await fetch("http://localhost:3000/todos", {
-      method: "GET",
-      
+    const result = await axios.get("http://localhost:3000/todos");
+    setListTodo(result.data);
+  }
+
+  async function apiPost() {
+    axios.post("http://localhost:3000/todos", {
+      desc: write,
+      completed: false,
     });
-    // console.log(await result.json());
-    const todos = await result.json();
-    setListTodo(todos);
   }
 
   //   the listTodo is use to store all the items and it is stored in an arrary because the items are much
@@ -34,6 +37,7 @@ export default function TodoList() {
 
           <input
             type="text"
+            placeholder="Enter your todo item"
             value={write}
             onChange={(e) => {
               setWrite(e.target.value);
@@ -49,18 +53,28 @@ export default function TodoList() {
               apiGet();
             }}
           >
+            View
+          </button>
+
+          <button
+            onClick={() => {
+              //setListTodo([...listTodo, write]);
+              //setWrite("");
+              apiPost();
+            }}
+          >
             Add
           </button>
         </div>
 
-        <div className={`mt-4 flex items-center justify-center`}>
+        <div className={`mt-4 flex items-center `}>
           <div>
             {/* create map to map throught the items saved in listTodo. todo represents the items */}
             {listTodo &&
               listTodo.map((todo, index) => (
                 <div
                   key={index}
-                  className={`flex items-center justify-center space-x-1`}
+                  className={`flex items-center justify-start space-x-1`}
                   onClick={() => {
                     // creating filter to use to remove an item. filter must be in a boolean condition
                     // const outcome = listTodo.filter(
@@ -70,8 +84,7 @@ export default function TodoList() {
                   }}
                 >
                   <GoDotFill />
-                  {todo.id} ---
-                  {todo.desc}
+                  <div className={`flex flex-col`}>{todo.desc}</div>
                 </div>
               ))}
           </div>
