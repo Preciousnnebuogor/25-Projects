@@ -12,7 +12,7 @@ export default function Game() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const filteredQuestions = QuestionBank.filter(
-    (question,index) => question.category === activeCategory
+    (question, index) => question.category === activeCategory
   );
 
   return (
@@ -80,7 +80,7 @@ export default function Game() {
                   className={`text-9xl font-extrabold flex items-center justify-center space-x-3`}
                 >
                   <div>
-                    {filteredQuestions[activeIndex].question} ={" "}
+                    {filteredQuestions[activeIndex].question} =
                     {displayAnswer && filteredQuestions[activeIndex].answers}
                   </div>
                 </div>
