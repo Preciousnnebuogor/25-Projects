@@ -15,7 +15,7 @@ export default function Note() {
             setUpdate(true)
             }
           }}
-          className={`border-2 rounded-full px-2`}
+          className={`border-2 rounded-full px-2 outline-none`}
         >
           Welcome
         </button>

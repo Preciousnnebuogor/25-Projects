@@ -1,12 +1,10 @@
-
-import Game from "./game/game";
-import Note from "./note";
-import TodoList from "./todo";
+import ArraryMethod from "./arraryMethod";
+import StickyNote from "./stickyNote";
 
 export default function Home() {
   return (
     <div>
-      <Note />
+      <StickyNote />
     </div>
   );
 }
