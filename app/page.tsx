@@ -1,10 +1,12 @@
-import ArraryMethod from "./arraryMethod";
-import StickyNote from "./stickyNote";
+
+import Checked from "./aaaaa";
+import PasswordGenerator from "./passwordGenerator";
+
 
 export default function Home() {
   return (
     <div>
-      <StickyNote />
+      <Checked />
     </div>
   );
 }
