@@ -1,6 +1,6 @@
 "use client";
 
-export default function ArraryMethod() {
+export default function StringMethod() {
   let csvData = "name,age,location";
   console.log(csvData.split(","));
   let result = csvData;
@@ -51,6 +51,14 @@ export default function ArraryMethod() {
   let part = text2.substring(0, 4);
   console.log(part);
 
+  let email = "user@example.com";
+  let username = email.substring(0, email.indexOf("@"));
+  console.log(username);
+
+  let email2 = "user@example.com";
+  let username1 = email2.substring(0, 4);
+  console.log(username1);
+
   //padStart
   let text3 = "Hello";
   let paddedText = text3.padStart(10);
@@ -64,6 +72,18 @@ export default function ArraryMethod() {
   let product = "Apple";
   let paddedProduct = product.padEnd(10, ".");
   console.log(paddedProduct);
+
+  let price = "100";
+  let formattedPrice = price.padEnd(7, " ");
+  console.log(formattedPrice + "$");  
+
+  //valueOf()
+  let strObject = new String("Hello");
+  console.log(typeof strObject); 
+
+  let primitiveValue = strObject.valueOf();
+  console.log(primitiveValue); 
+  console.log(typeof primitiveValue);
 
   return <div>{parte.split("-")}</div>;
 }

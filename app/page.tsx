@@ -1,13 +1,11 @@
 
-import Checked from "./aaaaa";
-import ArraryMethod from "./arraryMethod";
-import PasswordGenerator from "./passwordGenerator";
+import StringMethod from "./stringMethod";
 
 
 export default function Home() {
   return (
     <div>
-      <ArraryMethod />
+      <StringMethod/>
     </div>
   );
 }
