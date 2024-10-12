@@ -31,11 +31,23 @@ export default function StringMethod() {
   //match()
   let sentence = "The sun sets in the west sun sun.";
   let show = sentence.match(/sun/gi);
+  let showel = sentence.match(/sun/)
   console.log(show);
+  console.log(showel);
+
+  let texta = "Hello";
+  let paddedTexta = text.padStart(10);
+  console.log(paddedTexta);
+
+  
 
   let show2 = "John's phone number is 123-456-7890";
   let numbers = show2.match(/\d+/g); // finds all numbers
   console.log(numbers); // ["123", "456", "7890"]
+
+  let text4 = "I love cats and dogs";
+  let matches = text4.match(/cats|dogs/g);
+  console.log(matches);
 
 //search()
   let come = "I love cats and dogs.";
@@ -84,6 +96,12 @@ export default function StringMethod() {
   let primitiveValue = strObject.valueOf();
   console.log(primitiveValue); 
   console.log(typeof primitiveValue);
+
+ //string contructor
+ let strObject2 = new String("Hello");
+ console.log(typeof strObject2); // "object"
+ console.log(strObject2);
+
 
   return <div>{parte.split("-")}</div>;
 }
