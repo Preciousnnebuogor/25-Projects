@@ -1,11 +1,9 @@
-
-import StringMethod from "./stringMethod";
-
+import Question from "./questionsArrary";
 
 export default function Home() {
   return (
     <div>
-      <StringMethod/>
+      <Question />
     </div>
   );
 }
