@@ -133,8 +133,18 @@ const solution18 = () => {
     return arrayList.join("");
   });
   const formattedString = listOfCapitalizedStrings.join(" ");
-  
+
   return formattedString;
 };
 
-console.log(solution18());
+//Create a function that reverses a string using split(), reverse(), and join().
+const solution19 = () => {
+    let check = "coward bitch"
+    let result = check.split(" ")
+    let result2 = result.reverse()
+    let result3 = result2.join()
+    return result2
+}
+
+
+console.log(solution19());
