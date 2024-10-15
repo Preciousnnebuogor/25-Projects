@@ -146,5 +146,73 @@ const solution19 = () => {
     return result2
 }
 
+let body = "i am okay"
+let stringObject = new String("Hello");
 
-console.log(solution19());
+//object
+let person = {
+  name: "Precious",
+  greet: function() {
+    //console.log("Hello, my name is " + this.name);
+  }
+};
+
+person.greet(); 
+
+//Array
+let fruits = ["apple", "banana", "orange"];
+
+for (let i = 0; i < fruits.length; i++) {
+  //console.log(fruits[i]);
+}
+
+let arr = new Array(3);
+//console.log(arr)
+
+//forEach
+let fruites = ["apple", "banana", "orange"];
+
+fruits.forEach(function (fruit) {
+  //console.log(fruit); // Prints each fruit
+});
+
+//for loop
+let fruits1 = ["apple", "banana", "orange"];
+
+for (let i = 0; i < fruits1.length; i++) {
+  //console.log(fruits1[i]); 
+}
+
+let numbers = [1,2,3,4,5,6,7]
+for (let i=2; i < numbers.length; i++) {
+    //console.log(numbers[i]*2)
+}
+
+for (let i = 1; i <= 10; i++) {
+  if (i % 2 === 0) {
+   // console.log(i)
+  }
+}
+let book = [1,2,3,4,5,6,7,8,9]
+for (let i = 2; i <= book.length; i++) {
+    if (i % 2 === 0) {      //modulus
+   //     console.log(i)
+    }
+}
+
+for (let i = 1; i <= 5; i++) {
+  if (i % 2 === 0) {
+   // console.log(i + " is even");
+  } else {
+  //  console.log(i + " is odd");
+  }
+}
+
+for (let i = 1; i <= 10; i++) {
+  if (i % 4 === 0) {
+    continue; // Skip the iteration if the number is divisible by 4
+  }
+  console.log(i); // Prints numbers but skips 4 and 8
+}
+
+//console.log(typeof stringObject);
