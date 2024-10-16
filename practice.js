@@ -212,7 +212,14 @@ for (let i = 1; i <= 10; i++) {
   if (i % 4 === 0) {
     continue; // Skip the iteration if the number is divisible by 4
   }
-  console.log(i); // Prints numbers but skips 4 and 8
+//  console.log(i); // Prints numbers but skips 4 and 8
+}
+
+for (let i = 0; i < 5; i++) {
+  if (i === 2) {
+    continue; // Skip when i is 2
+  }
+  console.log(i);
 }
 
 //console.log(typeof stringObject);
