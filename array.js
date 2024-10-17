@@ -150,6 +150,5 @@ numbers8.sort();
 let fruitss = ["banana", "apple", "orange"];
 fruitss.sort()
 fruitss.reverse()
-console.log(fruitss); 
+//console.log(fruitss); 
 
-//How do you create an array in JavaScript?
