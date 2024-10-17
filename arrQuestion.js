@@ -92,8 +92,31 @@ const solution7 = () => {
 }
 //console.log(solution7())
 
-//What is the purpose of the reduce() method, and how can you use it to calculate the sum of an array?
+//*********What is the purpose of the reduce() method, and how can you use it to calculate the sum of an array?
 
 //Explain how the every() method works and when it returns true or false.
+// every() checks if the elements in a array meets a specific condition in a callback function and it
+// makes sure each of the elements meets the condition before it return true else it returns false
 
+//What is the difference between forEach() and map()?
+// map() returns a new array and shows the result
+// forEach() does not return a new array and do not show the result(undefined)
 
+//How can you use the sort() method to sort an array of numbers in ascending order?
+let list = [10, 2, 5, 1, 50, 3, 4, 8, 6,7]
+const solution8 = () => {
+    let check = list.sort((n,m)=> {
+        return n-m
+    })
+    let result= check.reverse()
+    return result
+    return check
+}
+//console.log(solution8())
+
+//What does the reverse() method do, and how does it affect the original array?
+// reverse() makes the array to be in descending order, it modifies an array
+
+//Explain how the some() method is different from every() and provide an example of each.
+// some() checks if it matches at least one condition and returns true
+// every() check if it matches all the conditions and return true
