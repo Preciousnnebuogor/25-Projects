@@ -223,3 +223,27 @@ for (let i = 0; i < 5; i++) {
 }
 
 //console.log(typeof stringObject);
+// function
+
+function checkAge(age) {
+  if (age < 18) {
+    return "Underage";  // Stops here if age is less than 18
+  }
+  return "Adult";  // This will only run if age is 18 or more
+}
+
+//console.log(checkAge(15));  // Output: "Underage"
+//console.log(checkAge(20));  //
+
+//function declaration
+ function Name () {
+
+ }
+ // function expression or anonymous function
+ const Name = function () {
+
+ }
+ // arrow function
+ const Name = () => {
+    
+ }

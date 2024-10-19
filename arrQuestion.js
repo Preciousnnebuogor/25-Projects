@@ -20,13 +20,11 @@ let lastElement = arrList[arrList.length - 1];
 //What does the indexOf() method do, and how is it used?
 // indexof() enables us to know the position of an element in an array and it returns the position of the element
 
-
 const Indexo = () => {
   let check = arrList.indexOf("mango");
   return check;
 };
 //console.log(Indexo())
-
 
 let index = arrList.indexOf("mango");
 //console.log(index)
@@ -43,19 +41,19 @@ const solution1 = () => {
 
 let arrList3 = ["mango", "apple", "watermelon", "carrot"];
 const solution2 = () => {
-    let check = arrList3.join(" - ")
-    return check;
-}
+  let check = arrList3.join(" - ");
+  return check;
+};
 //console.log(solution2())
 
 //What is the concat() method, and how can you combine two arrays using it?
 //the concat() is use to add multiple arrarys together to form a new array
- 
-let arrList1 = ["morning", "afternoon", "evening", "midnight"]
+
+let arrList1 = ["morning", "afternoon", "evening", "midnight"];
 const solution4 = () => {
-    let check = arrList.concat(arrList1)
-    return check
-}
+  let check = arrList.concat(arrList1);
+  return check;
+};
 //console.log(solution4())
 
 //What is the difference between slice() and splice() in arrays?
@@ -67,9 +65,9 @@ const solution4 = () => {
 let numbers = [1, 2, 3, 4, 5];
 
 const solution5 = () => {
-    let check = numbers.find((value) => value % 2 == 0 )
-    return check
-}
+  let check = numbers.find((value) => value % 2 == 0);
+  return check;
+};
 //console.log(solution5())
 
 //What is the difference between find() and findIndex()?
@@ -79,17 +77,18 @@ const solution5 = () => {
 //How does the filter() method work, and how can it be used to filter out even numbers from an array?
 // filter() loop through the array and only returns the elements that matches the condition
 const solution6 = () => {
-    let check = numbers.filter((value,index) => {
-      return value % 2 === 0})
-        return check
-}
+  let check = numbers.filter((value, index) => {
+    return value % 2 === 0;
+  });
+  return check;
+};
 //console.log(solution6())
 
 //How do you use the map() method to create a new array where each element is doubled in value?
 const solution7 = () => {
-    let check = numbers.map((value,index) => value * 2)
-    return check
-}
+  let check = numbers.map((value, index) => value * 2);
+  return check;
+};
 //console.log(solution7())
 
 //*********What is the purpose of the reduce() method, and how can you use it to calculate the sum of an array?
@@ -103,15 +102,15 @@ const solution7 = () => {
 // forEach() does not return a new array and do not show the result(undefined)
 
 //How can you use the sort() method to sort an array of numbers in ascending order?
-let list = [10, 2, 5, 1, 50, 3, 4, 8, 6,7]
+let list = [10, 2, 5, 1, 50, 3, 4, 8, 6, 7];
 const solution8 = () => {
-    let check = list.sort((n,m)=> {
-        return n-m
-    })
-    let result= check.reverse()
-    return result
-    return check
-}
+  let check = list.sort((n, m) => {
+    return n - m;
+  });
+  let result = check.reverse();
+  return result;
+  return check;
+};
 //console.log(solution8())
 
 //What does the reverse() method do, and how does it affect the original array?
@@ -120,3 +119,58 @@ const solution8 = () => {
 //Explain how the some() method is different from every() and provide an example of each.
 // some() checks if it matches at least one condition and returns true
 // every() check if it matches all the conditions and return true
+
+//1. How would you use the reduce() method to flatten a multi-dimensional array into a one-dimensional array?
+let dimensional = [
+  [1, 2],
+  [3, 4],
+  [5, 6],
+];
+let first = dimensional.reduce((accumulator, currentvalue) => {
+  return [].concat([1, 2]);
+}, []);
+//console.log(first)
+let second = dimensional.reduce((accumulator, currentvalue) => {
+  return [1, 2].concat([3, 4]);
+}, []);
+let third = dimensional.reduce((accumulator, currentvalue) => {
+  return [1, 2, 3, 4].concat([5, 6]);
+});
+//console.log(third)
+
+//2. How can you use the reduce() method to create an object from an array of arrays (e.g., converting key-value pairs into an object)?
+const keyValuePairs = [
+  ["name", "Alice"],
+  ["age", "25"],
+  ["country", "USA"],
+];
+
+let arrfirst = keyValuePairs.reduce((accumulator, currentValue) => {
+  const [key, value] = currentValue; // destructing assigning it to currentValue
+  accumulator[key] = value;   // making value a pair of key
+  // accumulator[currentValue[0]] = currentValue[1];
+  return accumulator;
+}, {});
+
+//console.log(arrfirst);
+
+// const gope = {
+// //   name: "Presh",
+// };
+
+// gope.name;
+// gope["name"] = "Favour"
+
+//How do entries(), keys(), and values() differ, and when would you use each one?
+ // entries() loops through an array and returns both the value and the value
+ // keys() loops through an array and returns only the key of the element
+ // value() loops through an array and returns only the value
+
+//11. How do you empty an array in JavaScript?
+let empty = ["name","car","review"]
+empty.length = 0
+const jack = () => {
+    let check = empty
+    return check
+}
+console.log(jack())
