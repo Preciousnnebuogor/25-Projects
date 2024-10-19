@@ -147,7 +147,7 @@ const keyValuePairs = [
 
 let arrfirst = keyValuePairs.reduce((accumulator, currentValue) => {
   const [key, value] = currentValue; // destructing assigning it to currentValue
-  accumulator[key] = value;   // making value a pair of key
+  accumulator[key] = value; // making value a pair of key
   // accumulator[currentValue[0]] = currentValue[1];
   return accumulator;
 }, {});
@@ -162,15 +162,33 @@ let arrfirst = keyValuePairs.reduce((accumulator, currentValue) => {
 // gope["name"] = "Favour"
 
 //How do entries(), keys(), and values() differ, and when would you use each one?
- // entries() loops through an array and returns both the value and the value
- // keys() loops through an array and returns only the key of the element
- // value() loops through an array and returns only the value
+// entries() loops through an array and returns both the value and the value
+// keys() loops through an array and returns only the key of the element
+// value() loops through an array and returns only the value
 
 //11. How do you empty an array in JavaScript?
-let empty = ["name","car","review"]
-empty.length = 0
+let empty = ["name", "car", "review"];
+empty.length = 0;
 const jack = () => {
-    let check = empty
-    return check
+  let check = empty;
+  return check;
+};
+//console.log(jack());
+
+//1.Given the array let fruits = ["apple", "banana", "mango"];, how can you access the first and last elements of the array?
+let fruits = ["apple", "banana", "mango", "lop", "uhu"];
+const solution9 = () => {
+  let first = fruits[0]
+  let last = fruits[fruits.length-1]
+  return {first,last}
+  //return [first,last]
+};
+//console.log(solution9());
+
+//2.Add the fruit "orange" to the end of the array fruits and remove the first fruit from the array.
+const solution10 = () => {
+    let addFruit = fruits.unshift("orange")
+    let removeFruit = fruits.shift("orange")
+    return fruits
 }
-console.log(jack())
+console.log(solution10())
