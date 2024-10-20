@@ -178,17 +178,53 @@ const jack = () => {
 //1.Given the array let fruits = ["apple", "banana", "mango"];, how can you access the first and last elements of the array?
 let fruits = ["apple", "banana", "mango", "lop", "uhu"];
 const solution9 = () => {
-  let first = fruits[0]
-  let last = fruits[fruits.length-1]
-  return {first,last}
+  let first = fruits[0];
+  let last = fruits[fruits.length - 1];
+  return { first, last };
   //return [first,last]
 };
 //console.log(solution9());
 
 //2.Add the fruit "orange" to the end of the array fruits and remove the first fruit from the array.
+
 const solution10 = () => {
-    let addFruit = fruits.unshift("orange")
-    let removeFruit = fruits.shift("orange")
-    return fruits
+  fruits.push("orange");
+  fruits.shift();
+  return fruits;
+};
+//console.log(solution10())
+
+//3.Write a for loop that prints each element of the array let numbers = [1, 2, 3, 4, 5];.
+let numbersarr = [1, 2, 3, 4, 5];
+for (i = 1; i <= numbersarr.length; i++) {
+  //console.log(i);
 }
-console.log(solution10())
+
+//Use the .map() method to double each number in the array let numbers = [1, 2, 3, 4];.
+let numbersa = [1, 2, 3, 4];
+let doubleNumbers = numbersa.map((value,index)=>{
+ return value * 2
+})
+//console.log(doubleNumbers)
+
+//Use the .filter() method to return only even numbers from the array let numbers = [1, 2, 3, 4, 5, 6];
+numbers = [1, 2, 3, 4, 5, 6]
+const solution12 = () => {
+let check = numbers.filter((value,index)=>{
+return value % 2 === 0
+})
+return check
+}
+//console.log(solution12())
+
+//Given let arr = [10, 20, 30, 40, 50];, use the .find() method to return the first element greater than 25.
+arr = [10, 20, 30, 40, 50];
+const solution13 = () => {
+    let check = arr.find((value, index)=>{
+        return value > 25
+    })
+    return check
+}
+//console.log(solution13())
+
+//Write a function that concatenates two arrays: let arr1 = [1, 2]; let arr2 = [3, 4]; and returns a single array.
