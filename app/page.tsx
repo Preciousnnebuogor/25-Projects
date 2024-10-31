@@ -1,9 +1,11 @@
-import Question from "./questionsArrary";
+import Contact from "./form2";
+import Game from "./game/game";
+
 
 export default function Home() {
   return (
     <div>
-      <Question />
+      <Game />
     </div>
   );
 }
