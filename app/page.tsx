@@ -1,11 +1,13 @@
-import Contact from "./form2";
-import Game from "./game/game";
+import CountryTime from "./Learning/conutryTime";
+import { Time2App } from "./Learning/time2";
 
 
 export default function Home() {
-  return (
-    <div>
-      <Game />
-    </div>
-  );
+   return (
+   <div>
+      {/* <CountryTime/> */}
+      <Time2App />
+     </div>
+   )
+  
 }
