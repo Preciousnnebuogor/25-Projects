@@ -184,3 +184,52 @@ const capitalizes2 = () => {
 
 //How do you compare two strings (e.g., "apple" and "banana") to determine which comes first lexicographically using localeCompare()?
 
+//	25. Write a function that removes spaces from the end of a string using trimEnd().
+
+const Space = () => {
+  let remove = "removespace         "
+  let result = remove.trimEnd()
+  return result
+}
+//console.log(Space())
+
+//How can you trim only the spaces from the beginning of the string " hello world" using trimStart()?
+
+const Space2 = () => {
+  let remove = "                               removespace";
+  let result = remove.trimStart();
+  return result;
+}
+//console.log(Space2())
+
+//Write a function that takes a string and returns its primitive value (non-object form) using valueOf().
+const Primitive = () => {
+  let strObject = new String("Precious")
+  let result = strObject.valueOf()
+  //console.log(typeof result)
+  return result
+}
+//console.log(Primitive())
+
+//How do you repeat the string "abc" 5 times and create a new string using repeat()?
+let word = "abc"
+let repeat = word.repeat(5)
+//console.log(repeat)
+
+//How do you pad the string "5" with zeros (0) to make it "0005" using padStart()?
+let pad = "5"
+let check = pad.padStart(4,0)
+//console.log(check)
+
+//Write a function that pads the string "hello" to a total length of 10 characters by adding * to the beginning, using padStart().
+let pad2 = "hello"
+let check2 = pad2.padStart(10,'*')
+//console.log(check2)
+
+//	How would you find all numbers in the string "I have 2 dogs and 3 cats" using match()?
+
+
+
+
+
+
