@@ -175,9 +175,12 @@ const capitalizes = () => {
 
 const capitalizes2 = () => {
   let letters = "word capital Country";
-  let result = letters.split(" ,").map(letter => {
-    return letter.charAt(0).toUpperCase() + letter.slice(1)
-  }).join('');
+  let result = letters
+    .split(" ,")
+    .map((letter) => {
+      return letter.charAt(0).toUpperCase() + letter.slice(1);
+    })
+    .join("");
   return result;
 };
 //console.log(capitalizes2());
@@ -187,10 +190,10 @@ const capitalizes2 = () => {
 //	25. Write a function that removes spaces from the end of a string using trimEnd().
 
 const Space = () => {
-  let remove = "removespace         "
-  let result = remove.trimEnd()
-  return result
-}
+  let remove = "removespace         ";
+  let result = remove.trimEnd();
+  return result;
+};
 //console.log(Space())
 
 //How can you trim only the spaces from the beginning of the string " hello world" using trimStart()?
@@ -199,37 +202,129 @@ const Space2 = () => {
   let remove = "                               removespace";
   let result = remove.trimStart();
   return result;
-}
+};
 //console.log(Space2())
 
 //Write a function that takes a string and returns its primitive value (non-object form) using valueOf().
 const Primitive = () => {
-  let strObject = new String("Precious")
-  let result = strObject.valueOf()
+  let strObject = new String("Precious");
+  let result = strObject.valueOf();
   //console.log(typeof result)
-  return result
-}
+  return result;
+};
 //console.log(Primitive())
 
 //How do you repeat the string "abc" 5 times and create a new string using repeat()?
-let word = "abc"
-let repeat = word.repeat(5)
+let word = "abc";
+let repeat = word.repeat(5);
 //console.log(repeat)
 
 //How do you pad the string "5" with zeros (0) to make it "0005" using padStart()?
-let pad = "5"
-let check = pad.padStart(4,0)
+let pad = "5";
+let check = pad.padStart(4, 0);
 //console.log(check)
 
 //Write a function that pads the string "hello" to a total length of 10 characters by adding * to the beginning, using padStart().
-let pad2 = "hello"
-let check2 = pad2.padStart(10,'*')
+let pad2 = "hello";
+let check2 = pad2.padStart(10, "*");
 //console.log(check2)
 
 //	How would you find all numbers in the string "I have 2 dogs and 3 cats" using match()?
+let wordString = "I have 2 dogs and 3 cats";
+let number = wordString.match(/[1234567890]/gi);
+//console.log(number)
 
+//Write a function that checks if the string "JavaScript is cool" contains
+//the word "cool" using includes() and returns true or false.
+const Contain = () => {
+  let word = "JavaScript is cool";
+  let result = word.includes("cool");
+  return result;
+};
+//console.log(Contain())
 
+//How can you check if the word "cat" exists in the sentence "I have a cat and a dog" using includes()?
+let checkWord = "I have a cat and a dog";
+let sentence2 = checkWord.includes("cat");
+//console.log(sentence2)
 
+//Write a function that finds the first occurrence of the letter "e" in the string "hello there" using indexOf().
+const find = () => {
+  let word = "hello there";
+  let result = word.indexOf("e");
+  return result;
+};
+// console.log(find())
 
+//How do you count the number of words in a sentence using split()?
+let sent = "i am doing well";
+let cheek = sent.split("").length;
+//console.log(cheek)
 
+//Write a function that takes a CSV string (e.g., "name,age,city") and returns an array of the individual values.
+const takes = () => {
+  let word = "name,age,city";
+  let result = word.split(",");
+  return result;
+};
+// console.log(takes())
 
+//XO("ooxx") => true
+//XO("xooxx") => false
+//XO("ooxXm") => true
+//XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+//XO("zzoo") => false
+
+const equalValue = (word1) => {
+  if (!word1.includes("o", "x")) {
+    return true;
+  }
+
+  let stringArr = word1.split("");
+  let obj = {};
+
+  stringArr.forEach((letter) => {
+    letter = letter.toLowerCase();
+
+    if (obj[letter]) {
+      obj[letter] = obj[letter] + 1;
+    } else {
+      obj[letter] = 1;
+    }
+  });
+  // console.log(obj, stringArr);
+  if (obj["x"] === obj["o"]) {
+    // console.log(obj);
+    return true;
+  }
+
+  return false;
+};
+// console.log("Expecting true", equalValue("ooxx"));
+// console.log("Expecting false", equalValue("xooxx"));
+// console.log("Expecting true", equalValue("ooxXm"));
+// console.log("Expecting true", equalValue("zpzpzpp")); // when no 'x' and 'o' is present should return true
+// console.log("Expecting false", equalValue("zzoo"));
+
+//If the string's length is odd, return the middle character,If the string's length is even, return the middle 2 characters.
+//"test" --> "es","testing" --> "t","middle" --> "dd","A" --> "A"
+const strLeng = (s) => {
+  // create a boolean variable to store if the str.length is an old/even nu
+  if(s.length == 1) {
+    return s
+  }
+  let isOdd = s.length % 2 !== 0;
+  if (isOdd) {
+    // get the letter at the center
+    const roundedNumber = Math.ceil(s.length / 2);
+    return s[roundedNumber];
+  } else {
+    // get the two letters at the center
+    const twice = s.length / 2;
+    return s[twice - 1].concat(s[twice]);
+  }
+};
+console.log(strLeng("test"));
+console.log(strLeng("testing"));
+console.log(strLeng("middle"));
+console.log(strLeng("a"));
