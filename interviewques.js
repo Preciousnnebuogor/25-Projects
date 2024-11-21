@@ -310,8 +310,8 @@ const equalValue = (word1) => {
 //"test" --> "es","testing" --> "t","middle" --> "dd","A" --> "A"
 const strLeng = (s) => {
   // create a boolean variable to store if the str.length is an old/even nu
-  if(s.length == 1) {
-    return s
+  if (s.length == 1) {
+    return s;
   }
   let isOdd = s.length % 2 !== 0;
   if (isOdd) {
@@ -324,7 +324,54 @@ const strLeng = (s) => {
     return s[twice - 1].concat(s[twice]);
   }
 };
-console.log(strLeng("test"));
-console.log(strLeng("testing"));
-console.log(strLeng("middle"));
-console.log(strLeng("a"));
+// console.log(strLeng("test"));
+// console.log(strLeng("testing"));
+// console.log(strLeng("middle"));
+// console.log(strLeng("a"));
+
+//Your task is to write a function that takes a string and return a new string with all vowels removed.
+//For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+
+const vowelRemoved = () => {
+  let str = "This website is for losers LOL!";
+  let result = str.replace(/[aeiou]/gi, "");
+
+  return result;
+};
+//console.log(vowelRemoved())
+
+//In this kata you will create a function that takes a list of non-negative
+//integers and strings and returns a new list with the strings filtered out.
+//filter_list([1,2,'a','b']) == [1,2]
+//filter_list([1,'a','b',0,15]) == [1,0,15]
+//filter_list([1,2,'aasf','1','123',123]) == [1,2,123]
+const kata = (list) => {
+  let result = list.filter((value, index) => {
+    return typeof value == "number";
+  });
+  return result;
+};
+// console.log(kata([1, 2, "a", "b"]));
+// console.log(kata([1, "a", "b", 0, 15]));
+// console.log(kata([1, 2, "aasf", "1", "123", 123]));
+
+//Your task is to write a function maskify, which changes all but the last four characters into '#'.
+//"4556364607935616" --> "############5616"
+//     "64607935616" -->      "#######5616"
+//               "1" -->                "1"
+//                "" -->                 ""
+
+const task = (cc) =>{
+if (cc.length === 1){
+   return cc;
+} else if (cc.length === 0) {
+  return ""
+} else {
+  return cc.slice(0,-4).replace(/./g, "*") + cc.slice(-4)
+}
+ 
+}
+console.log(task("4556364607935616"));
+console.log(task("64607935616"));
+console.log(task("1"));
+console.log(task(""));
