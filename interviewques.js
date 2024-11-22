@@ -361,17 +361,52 @@ const kata = (list) => {
 //               "1" -->                "1"
 //                "" -->                 ""
 
-const task = (cc) =>{
-if (cc.length === 1){
-   return cc;
-} else if (cc.length === 0) {
-  return ""
-} else {
-  return cc.slice(0,-4).replace(/./g, "*") + cc.slice(-4)
+const task = (cc) => {
+  if (cc.length === 1) {
+    return cc;
+  } else if (cc.length === 0) {
+    return "";
+  } else {
+    return cc.slice(0, -4).replace(/./g, "*") + cc.slice(-4);
+  }
+};
+// console.log(task("4556364607935616"));
+// console.log(task("64607935616"));
+// console.log(task("1"));
+// console.log(task(""));
+
+(let = s1 = "xyaabbbccccdefww"), (s2 = "xxxxyyyyabklmopq");
+const together = (s1, s2) => {
+  let check = [...new Set(s1 + s2)].sort().join("");
+  return check;
+};
+//console.log(together("xyaabbbccccdefww", "xxxxyyyyabklmopq"));
+
+//Complete the function that accepts a string parameter, and reverses each word in the string.
+//All spaces in the string should be retained.
+//"This is an example!" ==> "sihT si na !elpmaxe"
+//"double  spaces"      ==> "elbuod  secaps"
+
+const accept = (str) => {
+  let check = str.split(" ").map((word) => {
+  return  word.split('').reverse().join('')
+  }).join(' ')
+  return check;
+};
+// console.log(accept("This is an example!"));
+// console.log(accept("double  spaces"));
+
+//n this kata you are required to, given a string, replace every letter with its position in the alphabet.
+//If anything in the text isn't a letter, ignore it and don't return it.
+//Input = "The sunset sets at twelve o' clock."
+//Output = "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11"
+
+const kate = (text) => {
+return text.toLowerCase().split('').map((word)=> {
+ if (word >= 'a' && word <= 'z') {
+ return word.charCodeAt(0) - 96;
+ }
+ return ''
+}).join(' ')
 }
- 
-}
-console.log(task("4556364607935616"));
-console.log(task("64607935616"));
-console.log(task("1"));
-console.log(task(""));
+console.log(kate(`The sunset sets at twelve o' clock`))
