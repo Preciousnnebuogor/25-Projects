@@ -388,9 +388,12 @@ const together = (s1, s2) => {
 //"double  spaces"      ==> "elbuod  secaps"
 
 const accept = (str) => {
-  let check = str.split(" ").map((word) => {
-  return  word.split('').reverse().join('')
-  }).join(' ')
+  let check = str
+    .split(" ")
+    .map((word) => {
+      return word.split("").reverse().join("");
+    })
+    .join(" ");
   return check;
 };
 // console.log(accept("This is an example!"));
@@ -402,11 +405,274 @@ const accept = (str) => {
 //Output = "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11"
 
 const kate = (text) => {
-return text.toLowerCase().split('').map((word)=> {
- if (word >= 'a' && word <= 'z') {
- return word.charCodeAt(0) - 96;
- }
- return ''
-}).join(' ')
+  return text
+    .toLowerCase()
+    .split("")
+    .map((word) => {
+      if (word >= "a" && word <= "z") {
+        return word.charCodeAt(0) - 96;
+      }
+      return "";
+    })
+    .join(" ");
+};
+//console.log(kate(`The sunset sets at twelve o' clock`))
+
+//('AAAABBBCCDAABBB') == ['A', 'B', 'C', 'D', 'A', 'B'],('ABBCcAD')== ['A', 'B', 'C', 'c', 'A', 'D']
+//([1,2,2,3,3])== [1,2,3]
+const coword = (iterable) => {
+  const array = typeof iterable === "string" ? [...iterable] : iterable; // Convert string to array
+  return array.filter((value, index) => value !== array[index - 1]); // Remove sequential duplicates
+};
+
+// console.log(coword("AAAABBBCCDAABBB")); // ['A', 'B', 'C', 'D', 'A', 'B']
+// console.log(coword("ABBCcAD")); // ['A', 'B', 'C', 'c', 'A', 'D']
+// console.log(coword([1, 2, 2, 3, 3]));
+
+//['a','b','c','d','f'] -> 'e'
+//['O','Q','R','S'] -> 'P'
+
+const letters = (array) => {
+  for (let i = 0; i < array.length - 1; i++) {
+    if (array[i].charCodeAt(0) + 1 !== array[i + 1].charCodeAt(0)) {
+      return String.fromCharCode(array[i].charCodeAt(0) + 1);
+    }
+  }
+  return null;
+};
+// console.log(letters(["a", "b", "c", "d", "f"]));
+// console.log(letters(['O','Q','R','S']))
+
+//is_prime(1)  /* false */
+//is_prime(2)  /* true  */
+//is_prime(-1) /* false */
+
+const isPrime = (num) => {
+  // Prime numbers must be greater than 1
+  if (num <= 1) {
+    return false;
+  }
+  // Check divisors up to the square root of num
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true; // No divisors found, it's prime
+};
+// console.log(isPrime(1));
+// console.log(isPrime(2));
+// console.log(isPrime(-1));
+
+//"Hey fellow warriors"  --> "Hey wollef sroirraw"
+//"This is a test        --> "This is a test"
+//"This is another test" --> "This is rehtona test"
+
+const five = (string) => {
+  let result = string.split(" ").map((value, index) => {
+    if (value.length >= 5) {
+      return value.split("").reverse().join("");
+    } else {
+      return value;
+    }
+  });
+  return result.join(" ");
+};
+// console.log(five("Hey fellow warriors"))
+// console.log(five("This is a test "));
+// console.log(five("This is another test"));
+
+// createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) // => returns "(123) 456-7890"
+const phone = (number) => {
+  const phonenumber = `(${number.slice(0, 3).join("")})  ${number
+    .slice(3, 6)
+    .join("")} - ${number.slice(6).join("")}`;
+
+  return phonenumber;
+};
+// console.log(phone([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+
+//Implement a function that adds two numbers together and returns their sum in binary. The conversion can be done before, or after the addition.
+//The binary number returned should be a string.
+//Examples:(Input1, Input2 --> Output (explanation)))
+//1, 1 --> "10" (1 + 1 = 2 in decimal or 10 in binary)
+//5, 9 --> "1110" (5 + 9 = 14 in decimal or 1110 in binary)
+
+const number1 = (a, b) => {
+  let total = a + b;
+  return total.toString(2);
+};
+// console.log(number1(1,1))
+// console.log(number1(5,9))
+
+const solution = () => {
+  let sum = 0;
+  for (let i = 0; i < number; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      sum += 1;
+    }
+  }
+  return sum;
+};
+//console.log(solution(10));
+
+//[]                                -->  "no one likes this"
+//["Peter"]                         -->  "Peter likes this"
+//["Jacob", "Alex"]                 -->  "Jacob and Alex like this"
+//["Max", "John", "Mark"]           -->  "Max, John and Mark like this"
+//["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
+
+const likes = (names) => {
+  if (names.length === 0) {
+    return `no one likes this`;
+  } else if (names.length === 1) {
+    return `${names[0]} likes this`;
+  } else if (names.length === 2) {
+    return `${names[0]} and ${names[1]} likes this`;
+  } else if (names.length === 3) {
+    return `${names[0]}, ${names[1]}, ${names[2]} likes this`;
+  } else {
+    return `${names[0]}, ${names[1]} , and  ${
+      names.length - 2
+    } others like this`;
+  }
+};
+// console.log(likes([]))
+// console.log(likes(["Peter"]));
+// console.log(likes(["Jacob", "Alex"]));
+// console.log(likes(["Alex", "Jacob", "Mark", "Max"]));
+
+//Complete the solution so that the function will break up camel casing, using a space between words.
+//"camelCasing"  =>  "camel Casing"
+//"identifier"   =>  "identifier"
+//""             =>  ""
+
+const breakCamelCase = (string) => {
+  return string.replace(/([a-z])([A-Z])/g, "$1 $2");
+};
+// console.log(breakCamelCase("camelCasing")); // "camel Casing"
+// console.log(breakCamelCase("identifier")); // "identifier"
+// console.log(breakCamelCase(""));
+
+//If a value is present in b, all of its occurrences must be removed from the other:
+//arrayDiff([1,2,2,2,3],[2]) == [1,3]
+
+const press = (a, b) => {
+  let result = a.filter((value) => !b.includes(value));
+  return result;
+};
+//console.log(press([1, 2, 2, 2, 3], [2]));
+
+//[1,2,2,3,3,3,4,3,3,3,2,2,1]
+const numbers = (arr) => {
+  const freqMap = {};
+
+  arr.forEach((num) => {
+    freqMap[num] = (freqMap[num] || 0) + 1;
+  });
+
+  for (let num in freqMap) {
+    if (freqMap[num] % 2 !== 0) {
+      return parseInt(num);
+    }
+  }
+};
+//console.log(numbers([1, 2, 2, 3, 3, 3, 4, 3, 3, 3, 2, 2, 1]));
+
+//highAndLow("1 2 3 4 5"); // return "5 1"
+//highAndLow("1 2 -3 4 5"); // return "5 -3"
+//highAndLow("1 9 3 4 -5"); // return "9 -5"
+
+// const higher = (numbers) => {
+//   const result = numbers.split(' ').map((Number))
+//   let highest = -infinity,
+//   let lowest = Infinity;
+
+//   result.forEach(number => {
+//     if(number > highest) {
+//       return highest
+//     }
+//     if(number < lowest) {
+//       return lowerest
+//     }
+//   });
+//   return (highest, lowerest)
+// }
+// console.log(numbers("1 2 3 4 5"))
+// console.log(numbers("1 2 -3 4 5"))
+// console.log(numbers("1 9 3 4 -5"))
+
+const findHighAndLow = (str) => {
+  let numbers = str.split(" "); // Split by spaces and convert to numbers
+  let min = Math.min(...numbers); // Find the smallest number
+  let max = Math.max(...numbers); // Find the largest number
+  return `${max} ${min}`; // Format the result as a string
+};
+
+// console.log(findHighAndLow("1 9 3 4 -5")); // { highest: 9, lowest: -5 }
+// console.log(findHighAndLow("10 20 30 5 1"));
+
+//1,9 -> 1,2,3,4,6,7,8,9 -> Result 8
+//4,17 -> 4,6,7,8,9,10,11,12,13,14,16,17 -> Result 12
+
+const logs = (start, end) => {
+  let numberCount = 0;
+  for (let i = start; i <= end; i++) {
+    let numString = i.toString();
+    if (numString.includes("5")) {
+      continue;
+    }
+    numberCount = numberCount + 1;
+  }
+  return numberCount;
+};
+
+//console.log(logs(1,9));
+//console.log(logs(4,17));
+
+//"is2 Thi1s T4est 3a"  -->  "Thi1s is2 3a T4est"
+//"4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
+const sort = (words) => {
+  let numbers = words
+    .split(" ")
+    .sort((a, b) => a.match(/\d+/) - b.match(/\d+/))
+    .join(" ");
+  return numbers;
+};
+// )console.log(sort("is2 Thi1s T4est 3a"))
+// console.log(sort("4of Fo1r pe6ople g3ood th5e the2")
+
+//[1,2,3,4,5] --> [1,5]
+//[2334454,5] --> [5,2334454]
+//[1]         --> [1,1]
+const go = (arr) => {
+  return [Math.min(...arr), Math.max(...arr)];
+};
+// console.log(go([1, 2, 3, 4, 5]));
+// console.log(go([2334454, 5]));
+// console.log(go([1]));
+
+function minMax(arr) {
+  var min = (max = arr[0]);
+  arr.forEach((x) => {
+    if (x < min) min = x;
+    if (x > max) max = x;
+  });
+  return (result = [min, max]);
 }
-console.log(kate(`The sunset sets at twelve o' clock`))
+// console.log(go([1, 2, 3, 4, 5]));
+// console.log(go([2334454, 5]));
+// console.log(go([1]));
+
+Input = ["Ryan", "Kieran", "Jason", "Yous"];
+Output = ["Ryan", "Yous"];
+
+Input = ["Peter", "Stephen", "Joe"];
+Output = [];
+
+const output = (friends) => {
+  let result = friends.filter((friend) => (frend = friend.length <= 4));
+  return result;
+};
+console.log(output(["Ryan", "Kieran", "Jason", "Yous"]));
+console.log(output(["Peter", "Stephen", "Joe"]));
