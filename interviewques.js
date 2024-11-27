@@ -664,15 +664,33 @@ function minMax(arr) {
 // console.log(go([2334454, 5]));
 // console.log(go([1]));
 
-Input = ["Ryan", "Kieran", "Jason", "Yous"];
-Output = ["Ryan", "Yous"];
+// Input = ["Ryan", "Kieran", "Jason", "Yous"];
+// Output = ["Ryan", "Yous"];
 
-Input = ["Peter", "Stephen", "Joe"];
-Output = [];
+// Input = ["Peter", "Stephen", "Joe"];
+// Output = [];
 
 const output = (friends) => {
-  let result = friends.filter((friend) => (frend = friend.length <= 4));
+  let result = friends.filter((friend) => friend.length === 4);
   return result;
 };
-console.log(output(["Ryan", "Kieran", "Jason", "Yous"]));
-console.log(output(["Peter", "Stephen", "Joe"]));
+// console.log(output(["Ryan", "Kieran", "Jason", "Yous"]));
+// console.log(output(["Peter", "Stephen", "Joe"]));
+
+["Telescopes", "Glasses", "Eyes", "Monocles"]
+
+const arrange = (array) => {
+  let result = array.sort((a,b) => a.length -b.length)
+  return result
+}
+//console.log(arrange(["Telescopes", "Glasses", "Eyes", "Monocles"]));
+
+//solution('abc', 'bc') // returns true
+//solution('abc', 'd') // returns false
+
+const chec = (str, ending) => {
+  let result = str.includes(ending)
+  return result
+};
+console.log(chec('abc','bc'))
+console.log(chec("abc", "d"));
