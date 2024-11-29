@@ -1,3 +1,5 @@
+const { Console } = require("console");
+
 // What are the possible ways to create objects in JavaScriconst
 const Property = {
   house: "building",
@@ -677,20 +679,210 @@ const output = (friends) => {
 // console.log(output(["Ryan", "Kieran", "Jason", "Yous"]));
 // console.log(output(["Peter", "Stephen", "Joe"]));
 
-["Telescopes", "Glasses", "Eyes", "Monocles"]
+["Telescopes", "Glasses", "Eyes", "Monocles"];
 
 const arrange = (array) => {
-  let result = array.sort((a,b) => a.length -b.length)
-  return result
-}
+  let result = array.sort((a, b) => a.length - b.length);
+  return result;
+};
 //console.log(arrange(["Telescopes", "Glasses", "Eyes", "Monocles"]));
 
 //solution('abc', 'bc') // returns true
 //solution('abc', 'd') // returns false
 
 const chec = (str, ending) => {
-  let result = str.includes(ending)
-  return result
+  let result = str.endsWith(ending);
+  return result;
 };
-console.log(chec('abc','bc'))
-console.log(chec("abc", "d"));
+// console.log(chec('abc','bc'))
+// console.log(chec("abc", "d"));
+
+//"abcde" -> 0 # no characters repeats more than once
+//"aabbcde" -> 2 # 'a' and 'b'
+//"aabBcde" -> 2
+const countDuplicates = (input) => {
+  const lowerCased = input.toLowerCase();
+  const charFrequency = {};
+
+  // Count the frequency of each character
+  for (let char of lowerCased) {
+    charFrequency[char] = (charFrequency[char] || 0) + 1;
+  }
+
+  // Count characters with frequency > 1
+  const duplicateCount = Object.values(charFrequency).filter(
+    (count) => count > 1
+  ).length;
+
+  return duplicateCount;
+};
+
+// Test Cases
+// console.log(countDuplicates("abcde")); // Output: 0
+// console.log(countDuplicates("aabbcde")); // Output: 2 ('a' and 'b')
+// console.log(countDuplicates("aabBcde")); // Output: 2 ('a' and 'b')
+// console.log(countDuplicates("indivisibility")); // Output: 1 ('i')
+// console.log(countDuplicates("Indivisibilities")); // Output: 2 ('i' and 's')
+// console.log(countDuplicates("aA11")); // Output: 2 ('a' and '1')
+// console.log(countDuplicates("ABBA")); // O
+
+//[] --> []
+//["a", "b", "c"] --> ["1: a", "2: b", "3: c"]
+
+var numberal = function (array) {
+  return array.map(function (line, index) {
+    return index + 1 + ": " + line;
+  });
+};
+// console.log(numberal([]))
+//console.log(numberal(["a", "b", "c"]))
+
+// (1, 0) --> 1 (1 + 0 = 1)
+// (1, 2) --> 3 (1 + 2 = 3)
+// (0, 1) --> 1 (0 + 1 = 1)
+// (1, 1) --> 1 (1 since both are same)
+// (-1, 0) --> -1 (-1 + 0 = -1)
+// (-1, 2) --> 2 (-1 + 0 + 1 + 2 = 2)
+
+const equal = (a, b) => {
+  if (a === b) {
+    return a;
+  } else {
+    return a + b;
+  }
+};
+// console.log(equal(1,0))
+// console.log(equal(1,2));
+// console.log(equal(0,1));
+// console.log(equal(1,1));
+// console.log(equal(-1,0));
+// console.log(equal(-1,2));
+
+//'abc' =>  ['ab', 'c_']
+//'abcdef' => ['ab', 'cd', 'ef']
+const solve = (str) => {
+  let pairs = []; // Step 1: Create an empty array to store the pairs
+  for (let i = 0; i < str.length; i += 2) {
+    let pair = str.slice(i, i + 2);
+    if (pair.length < 2) {
+      pair += "_";
+    }
+    pairs.push(pair);
+  }
+  return pairs;
+};
+// console.log(solve('abc'))
+// console.log(solve('abcdef'));
+
+// Input: 42145 Output: 54421
+// Input: 145263 Output: 654321
+// Input: 123456789 Output: 987654321
+
+const input = (n) => {
+  let str = n
+    .toString()
+    .split("")
+    .sort((a, b) => b - a)
+    .join("");
+  let result = parseInt(str);
+  return result;
+};
+// console.log(input(42145));
+// console.log(input(145263));
+// console.log(input(123456789));
+
+// input:    output:
+// 0    ->   0
+// 2    ->   5
+// 3    ->   5
+// 12   ->   15
+// 21   ->   25
+// 30   ->   30
+// -2   ->   0
+// -5   ->   -5
+// etc.
+
+const mono = (n) => {
+  return Math.ceil(n / 5) * 5;
+};
+// console.log(mono(0))
+// console.log(mono(2));
+// console.log(mono(3));
+// console.log(mono(12));
+// console.log(mono(21));
+// console.log(mono(30));
+// console.log(mono(-2));
+// console.log(mono(-5));
+
+// [1, 1, 2] ==> 2
+// [17, 17, 3, 17, 17, 17, 17] ==> 3
+const come = (numbers) => {
+  //return str.reduce((x, y) => x ^ y);
+  return numbers.find(
+    (num) => numbers.indexOf(num) === numbers.lastIndexOf(num)
+  );
+};
+// console.log(come([1,1,2]))
+
+//"hello case" --> "HelloCase"
+//"camel case word" --> "CamelCaseWord"
+
+const camel = (numbers) => {
+  let result = numbers
+    .split(" ")
+    .map((word) => {
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    })
+    .join("");
+  return result;
+};
+// console.log(camel('hello case'))
+// console.log(camel('camel case word'))
+
+//"foefet" is an anagram of "toffee"
+//"Buckethead" is an anagram of "DeathCubeK"
+
+const isAnagram = function (test, original) {
+  const isValid =
+    test.toLowerCase().split("").sort().join("") ===
+    original.toLowerCase().split("").sort().join("");
+
+  return isValid;
+};
+// console.log(isAnagram("Foefet", "toffee"));
+// console.log(isAnagram("Buckethead", "DeathCubeK"));
+
+//aba => {'a': 2, 'b': 1}
+const count = (str) => {
+  let freq = {};
+  for (let char of str) {
+    freq[char] = (freq[char] || 0) + 1;
+  }
+  return freq;
+};
+// console.log(count('aba'))
+// console.log(count(''))
+
+// Input: [1,2,3,4,5], output = [2,3,4,5]
+// Input: [5,3,2,1,4], output = [5,3,2,4]
+// Input: [2,2,1,2,1], output = [2,2,2,1]
+const workup = (numbers) => {
+  const min = Math.min.apply(this, numbers);
+  return numbers.filter((num, idx, arr) => idx !== arr.indexOf(min));
+    
+};
+// console.log(workup([1, 2, 3, 4, 5]));
+// console.log(workup([5, 3, 2, 1, 4]));
+// console.log(workup([2, 2, 1, 2, 1]));
+
+
+//"www.codewars.com#about" --> "www.codewars.com"
+//"www.codewars.com?page=1" -->"www.codewars.com?page=1"
+const websit = (url) => {
+  return url.replace(/#.*/gi, "");
+}
+// console.log(websit('www.codewars.com#about'))
+// console.log(websit('www.codewars.com?page=1'))
+
+//"String" => "StRiNg"
+//"Weird string case" => "WeIrD StRiNg CaSe"
