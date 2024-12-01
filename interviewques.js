@@ -869,20 +869,112 @@ const count = (str) => {
 const workup = (numbers) => {
   const min = Math.min.apply(this, numbers);
   return numbers.filter((num, idx, arr) => idx !== arr.indexOf(min));
-    
 };
 // console.log(workup([1, 2, 3, 4, 5]));
 // console.log(workup([5, 3, 2, 1, 4]));
 // console.log(workup([2, 2, 1, 2, 1]));
 
-
 //"www.codewars.com#about" --> "www.codewars.com"
 //"www.codewars.com?page=1" -->"www.codewars.com?page=1"
 const websit = (url) => {
   return url.replace(/#.*/gi, "");
-}
+};
 // console.log(websit('www.codewars.com#about'))
 // console.log(websit('www.codewars.com?page=1'))
 
 //"String" => "StRiNg"
 //"Weird string case" => "WeIrD StRiNg CaSe"
+
+const worddy = (string) => {
+  let result = string
+    .match(/[aeiou]/gi)
+    .toLowerCase()
+    .join("")
+    .toUpperCase();
+  return result;
+};
+//console.log(worddy('String'))
+
+//Return the number (count) of vowels in the given string.
+//We will consider a, e, i, o, u as vowels for this Kata (but not y).
+//The input string will only consist of lower case letters and/or spaces.
+
+const vowel2 = (str) => {
+  return (str.match(/[aeiou]/gi) || "").length;
+  //return str.replace(/[^aeiou]/gi, '').length
+};
+//console.log(vowel2('abcdefr'))
+
+// 5, 2, "add"      --> 7
+// 5, 2, "subtract" --> 3
+// 5, 2, "multiply" --> 10
+// 5, 2, "divide"   --> 2.5
+
+const numbs = (a, b, operator) =>
+  ({
+    add: a + b,
+    subtract: a - b,
+    divide: a % b,
+    multiply: a * b,
+  }[operator]);
+// console.log(numbs(5, 2, 'add'));        // 7
+// console.log(numbs(5, 2, 'subtract'));   // 3
+// console.log(numbs(5, 2, 'divide'));     // 2.5
+// console.log(numbs(5, 2, 'multiply'));
+
+//"the-stealth-warrior" gets converted to "theStealthWarrior"
+//"The_Stealth_Warrior" gets converted to "TheStealthWarrior"
+//"The_Stealth-Warrior" gets converted to "TheStealthWarrior"
+
+const uppercase = (str) => {
+  let result = str
+    .split(/[-_]/gi)
+    .map((value) => {
+      return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+    })
+    .join("");
+  return result;
+};
+// console.log(uppercase("the-stealth-warrior"));
+
+const transformToCamelCase = (str) => {
+  return str
+    .split(/[-_]/) // Split the string by "-" or "_"
+    .map(
+      (word, index) =>
+        index === 0
+          ? word.toLowerCase() // Keep the first word lowercase
+          : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() // Capitalize subsequent words
+    )
+    .join(""); // Join words without delimiters
+};
+
+// console.log(transformToCamelCase("the-stealth-warrior")); // "theStealthWarrior"
+// console.log(transformToCamelCase("The_Stealth_Warrior")); // "TheStealthWarrior"
+// console.log(transformToCamelCase("The_Stealth-Warrior")); // "TheStealthWarrior"
+
+//"1234"   -->  true
+//"12345"  -->  false
+//"a234"   -->  false
+
+// const checked = (str) => {
+//   if (str.toString().includes("-")) {
+//     return false;
+//   }
+//   let result = str.match(/[1234567890]/gi).join("");
+//   if (result.length == 4) {
+//     return true;
+//   } else if (result.length == 6) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// };
+
+function validatePIN(pin) {
+  return /^(\d{4}|\d{6})$/.test(pin);
+}
+  console.log(validatePIN("1234"));
+ console.log(validatePIN("12345"));
+ console.log(validatePIN("a234"));
+console.log(validatePIN("-1234"));
