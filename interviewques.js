@@ -974,7 +974,119 @@ const transformToCamelCase = (str) => {
 function validatePIN(pin) {
   return /^(\d{4}|\d{6})$/.test(pin);
 }
-  console.log(validatePIN("1234"));
- console.log(validatePIN("12345"));
- console.log(validatePIN("a234"));
-console.log(validatePIN("-1234"));
+//   console.log(validatePIN("1234"));
+//  console.log(validatePIN("12345"));
+//  console.log(validatePIN("a234"));
+// console.log(validatePIN("-1234"));
+
+function smallEnough(a, limit) {
+  return Math.max(...a) <= limit;
+}
+
+//[1, 2, 10, 8] --> [8, 10]
+//[1, 5, 87, 45, 8, 8] --> [45, 87]
+//[1, 3, 10, 0] --> [3, 10]
+function twoOldest(age) {
+  let result = age.sort((a, b) => a - b).slice(-2);
+  return result;
+}
+// console.log(twoOldest([1, 2, 10, 8]));
+// console.log(twoOldest([1, 5, 87, 45, 8, 8]));
+// console.log(twoOldest([1, 3, 10, 0]));
+
+// Given a two-dimensional array of integers, return the flattened version of the array with
+// all the integers in the sorted (ascending) order.
+// Given [[3, 2, 1], [4, 6, 5], [], [9, 7, 8]], your function should return [1, 2, 3, 4, 5, 6, 7, 8, 9].
+
+const sorted = (arr) => {
+  let result = arr.flat().sort((a, b) => a - b);
+  return result;
+};
+// console.log(sorted([[3, 2, 1], [4, 6, 5], [], [9, 7, 8]]));
+
+// Testing: [0, 0, 0, 1] ==> 1
+// Testing: [0, 0, 1, 0] ==> 2
+// Testing: [0, 1, 0, 1] ==> 5
+// Testing: [1, 0, 0, 1] ==> 9
+// Testing: [0, 0, 1, 0] ==> 2
+// Testing: [0, 1, 1, 0] ==> 6
+// Testing: [1, 1, 1, 1] ==> 15
+// Testing: [1, 0, 1, 1] ==> 11
+const binaryArrayToNumber = (arr) => parseInt(arr.join(""), 2);
+// console.log(binaryArrayToNumber([0, 0, 0, 1]));
+// console.log(binaryArrayToNumber([0, 0, 1, 0]));
+// console.log(binaryArrayToNumber([1, 0, 0, 1]));
+// console.log(binaryArrayToNumber([0, 0, 1, 0]));
+// console.log(binaryArrayToNumber([0, 1, 1, 0]));
+
+// getEvenNumbers([2,4,5,6]) // should == [2,4,6]
+const set = (even) => {
+  let check = even.filter((value) => {
+    return value % 2 == 0;
+  });
+  return check;
+};
+//console.log(set([2, 4, 5, 6]));
+
+const getEvenNumbers = (numbersArray) =>
+  numbersArray.filter((num) => num % 2 == 0);
+//console.log(getEvenNumbers([2, 4, 5, 6]));
+
+//([1, 2, 3, 4, 5, 6, 7, 8, 9], 3) => [4, 6, 8]
+//([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2) => [-8, 26]
+//([6, -25, 3, 7, 5, 5, 7, -3, 23], 1) => [6]
+const numArr = (arr, number) => {
+  let result = arr.filter((item) => item % 2 == 0).slice(-number);
+  return result;
+};
+// console.log(numArr([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
+// console.log(numArr([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2));
+// console.log(numArr([6, -25, 3, 7, 5, 5, 7, -3, 23], 1));
+
+//Your task is to remove all duplicate words from a string, leaving only single (first) words entries.
+//'alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta'
+
+const removeDouble = (letters) => {
+  // let result = letters
+  //   .split(" ")
+  //   .filter((word, index, array) => array.indexOf(word) === index)
+  //   .join(" ");
+  // return result;
+
+  let result = [...new Set(letters.split(' '))].join(' ')
+  return result
+};
+// console.log(
+//   removeDouble(
+//     "alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta"
+//   )
+// );
+//const removeDuplicateWords = (s) => [...new Set(s.split(" "))].join(" ");
+
+
+// const upperWord = (string) => {
+//   let word = string.split(' ').map((char,index)=>{
+//    index % 2 === 0 ? char.toUpperCase() : char.toLowerCase() 
+//   }).join('')
+// }
+
+function toWeirdCase(string) {
+  return string
+    .split(" ") // Split the string into words
+    .map(
+      (word) =>
+        word
+          .split("") // Split each word into characters
+          .map((char, index) =>
+            index % 2 === 0 ? char.toUpperCase() : char.toLowerCase()
+          ) // Alternate uppercase and lowercase
+          .join("") // Rejoin the characters into a word
+    )
+    .join(" "); // Rejoin the words into a single string
+}
+//console.log(toWeirdCase("stringuuu"));
+
+const numbersLine = (a,b) => {
+  let result = a.
+}
+
